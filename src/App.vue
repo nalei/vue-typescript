@@ -6,15 +6,15 @@
       h3.md-title Default
     md-drawer.main-drawer(:md-active.sync='showNavigation')
       md-toolbar.main-drawer__header(md-elevation='0')
-        span.md-title Default
-      nav.md-navigation
+        span.md-title
+      nav.md-navigation(@click='showNavigation = false')
         router-link.md-navigation__link(to='/')
           md-icon home
           | Home
         router-link.md-navigation__link(to='/about')
           md-icon forum
           | About
-    .md-layout.md-alignment-top-center
+    .md-layout.md-gutter.md-alignment-top-center
       router-view
 </template>
 
@@ -43,6 +43,7 @@ export default class App extends Vue {
 
     &__header {
       background: md-get-palette-color(bluegrey, 900);
+      height: 151px;
     }
   }
   .md-navigation {
@@ -54,7 +55,8 @@ export default class App extends Vue {
       flex-direction: row;
       align-items: center;
       font-weight: 500;
-      color :md-get-palette-color(grey, 400); 
+      color: rgba(255, 255, 255, 0.56);
+      // color :md-get-palette-color(grey, 400); 
       text-decoration: none;
       padding: 16px 40px;
       letter-spacing: 0;
