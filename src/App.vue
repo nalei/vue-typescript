@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    md-toolbar.main-header
+    md-toolbar.main-header(md-elevation='2')
       md-button.md-icon-button(@click='showNavigation = true')
         md-icon menu
       h3.md-title Default
@@ -14,8 +14,7 @@
         router-link.md-navigation__link(to='/about')
           md-icon forum
           | About
-    .md-layout.md-gutter.md-alignment-top-center
-      router-view
+    router-view
 </template>
 
 <script lang="ts">
@@ -76,7 +75,8 @@ export default class App extends Vue {
   }
   .md-layout {
     margin: 0 auto;
-    max-width: 840px;
+    max-width: 1080px;
+    padding-top: 16px;
   }
 }
 </style>
