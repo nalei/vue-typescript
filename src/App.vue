@@ -76,7 +76,10 @@ export default class App extends Vue {
   .md-layout {
     margin: 0 auto;
     max-width: 1080px;
+  }
+  .md-layout-item {
     padding-top: 16px;
+    padding-bottom: 16px;
   }
 }
 </style>
