@@ -3,7 +3,7 @@
     form#UPLOAD.file-upload
       md-button.file-upload__button.md-dense.md-raised.md-primary Browse
         input.file-upload__upload-input(v-on:change="browseFile", type='file', name='FileAttachment')
-      input.file-upload__upload-url(type='text', readonly='', placeholder='Maximum file size is 1GB')
+      input.file-upload__upload-url(v-model="single" type='text', readonly='', placeholder='Maximum file size is 1GB')
 
     form#DELETE.file-work-form
       md-field
@@ -20,9 +20,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 export default class FileWork extends Vue {
   single: any = null;
   filename: string = '';
-  browseFile() {
+  browseFile(e: any) {
+    let fileList = e.target.files || e.dataTransfer.files;
     // eslint-disable-next-line
-    console.log('Browse');
+    this.single = fileList[0].name;
   }
 }
 </script>
@@ -46,6 +47,7 @@ export default class FileWork extends Vue {
     align-items: center;
     .md-button-content {
       position: static;
+      font-size: 14px;
     }
     &__button.md-primary {
       position: relative;
@@ -68,7 +70,6 @@ export default class FileWork extends Vue {
     &__upload-url {
       border: none;
       font-size: 12px;
-      padding-left: 0;
       width: 250px;
     }
   }
