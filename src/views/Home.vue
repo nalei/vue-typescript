@@ -6,12 +6,7 @@
           md-card-header
             .md-title Card without hover effect
           md-card-content
-            form#DELETE
-              md-field
-                label Filename
-                md-input(v-model='initial')
-              md-button.md-dense.md-raised.md-primary Удалить
-
+            file-work
 
     .md-layout-item.md-large-size-33.md-small-size-50.md-xsmall-size-100
       md-card.dog-card
@@ -41,27 +36,18 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import FileWork from '@/components/FileWork.vue';
 
-@Component
-export default class App extends Vue {
-  initial: string = '';
-}
+@Component({
+  components: {
+    FileWork
+  },
+})
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
-
-#DELETE {
-  display: flex;
-  align-items: flex-end;
-  .md-field {
-    margin-bottom: 7px;
-  }
-  .md-primary {
-    color: #ffffff;
-    margin-right: 0;
-  }
-}
 
 .dog-card 
   .md-card-header {

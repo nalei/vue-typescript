@@ -31,7 +31,7 @@ export default class App extends Vue {
 
 @include md-register-theme("default", (
   primary: md-get-palette-color(Cyan, 500), // The primary color of your application
-  accent: md-get-palette-color(Lightblue, 500) // The accent or secondary color
+  accent: md-get-palette-color(Lightblue, 500), // The accent or secondary color white
 ));
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
@@ -73,6 +73,7 @@ export default class App extends Vue {
     color: #37474F;
     }
   }
+
   .md-layout {
     margin: 0 auto;
     max-width: 1080px;
