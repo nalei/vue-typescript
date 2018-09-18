@@ -1,6 +1,6 @@
 <template lang="pug">
   .md-layout-item.about
-    helloworld(msg='Welcome to Your Vue.js + TypeScript App')
+    hello-world(msg='Welcome to Your Vue.js + TypeScript App')
 </template>
 
 <script lang="ts">
