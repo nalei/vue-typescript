@@ -1,7 +1,11 @@
 <template lang="pug">
   .file-upload
     md-button.file-upload__button.md-dense.md-raised.md-primary Browse
-      input.file-upload__upload-input(@change="uploadFile", type='file', name='FileAttachment')
+      input.file-upload__upload-input(
+      type='file'
+      name='FileAttachment'
+      @change="uploadFile"
+      )
     span.file-upload__upload-url(v-if="!filesList.length") Maximum file size is 1GB
     span.file-upload__filename(v-else) {{ filesList[filesList.length - 1].name }}
 </template>
@@ -10,28 +14,28 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 interface File {
-  name: string
-  size: string
-  date: Date
+  name: string,
+  size: string,
+  date: Date,
   file: any
 }
 
 @Component
 export default class FileUpload extends Vue {
-  files: object[] = []
+  files: Array<object> = []
 
-  get filesList() {
+  private get filesList() {
     return this.files.map(this.convertFile)
   }
 
-  uploadFile (e: any) {
+  private uploadFile (e: any) {
     let files = e.target.files || e.dataTransfer.files
     this.files = [...files]
   }
-  removeFile () {
+  private removeFile () {
     this.files = []
   }
-  convertFile (file: any): File {
+  private convertFile (file: any): File {
     return {
       name: file.name,
       size: this.formatSize(file.size),
@@ -39,14 +43,14 @@ export default class FileUpload extends Vue {
       file: file
     }
   }
-  formatSize (bytes: any) {
+  private formatSize (bytes: any) {
     if (bytes === 0) return '0 Bytes'
     const k = 1024
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
     const i = Math.floor(Math.log(bytes) / Math.log(k))
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
   }
-  formatDate (date: any) {
+  private formatDate (date: any) {
     if (!date) return ''
     return date.toLocaleDateString('en-US', {
       hour: '2-digit',
