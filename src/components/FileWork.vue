@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import FileUpload from '@/components/FileUpload.vue';
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import FileUpload from '@/components/FileUpload.vue'
 
 @Component({
   components: {
@@ -20,7 +20,7 @@ import FileUpload from '@/components/FileUpload.vue';
   }
 })
 export default class FileWork extends Vue {
-  filenameForDelete: string = '';
+  filenameForDelete: string = ''
 }
 </script>
 
