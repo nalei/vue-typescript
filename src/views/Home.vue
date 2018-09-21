@@ -6,7 +6,22 @@
           md-card-header
             .md-title Card without hover effect
           md-card-content
-            file-work
+            form#POST
+              file-upload
+
+            form#GET.file-work-form
+              md-field
+                label Filename
+                md-input(v-model='filenameForRead')
+                span.md-helper-text filename.ext
+              md-button.file-work-form__button.md-dense.md-raised.md-primary Загрузить
+
+            form#DELETE.file-work-form
+              md-field
+                label Filename
+                md-input(v-model='filenameForDelete')
+                span.md-helper-text filename.ext
+              md-button.file-work-form__button.md-dense.md-raised.md-primary Удалить
 
     //- .md-layout-item.md-large-size-33.md-small-size-50.md-xsmall-size-100
     //-   md-card.dog-card
@@ -34,22 +49,38 @@
     //-       md-button Read more
 
 </template>
+
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import FileWork from '@/components/FileWork.vue' 
+import FileUpload from '@/components/FileUpload.vue'
 
 @Component({
   components: {
-    FileWork
+    FileUpload
   },
 })
-export default class App extends Vue {}
+export default class Home extends Vue {
+  filenameForDelete: string = ''
+  filenameForRead: string= ''
+}
 </script>
 
 <style lang="scss">
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
-.dog-card 
+.file-work-form {
+  display: flex;
+  align-items: flex-end;
+
+  .md-field {
+    margin-bottom: 7px;
+  }
+  &__button.md-primary {
+    color: #fff !important;
+    margin-right: 0;
+  }
+}
+.dog-card {
   .md-card-header {
     min-height: 200px;
     background: md-get-palette-color(teal, 300);
@@ -57,4 +88,5 @@ export default class App extends Vue {}
     background-position: 90% 100%;
     background-repeat: no-repeat;
   }
+}
 </style>

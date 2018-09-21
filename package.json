@@ -10,7 +10,6 @@
   "dependencies": {
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
-    "vue-cli-plugin-axios": "0.0.4",
     "vue-material": "^1.0.0-beta-10.2",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1"
@@ -22,9 +21,11 @@
     "@vue/cli-plugin-typescript": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-typescript": "^3.0.1",
+    "axios": "^0.18.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "typescript": "^3.0.0",
+    "vue-cli-plugin-axios": "0.0.4",
     "vue-cli-plugin-pug": "^1.0.5",
     "vue-template-compiler": "^2.5.17"
   },
