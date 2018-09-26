@@ -26,6 +26,7 @@
     "sass-loader": "^7.0.1",
     "typescript": "^3.0.0",
     "vue-cli-plugin-axios": "0.0.4",
+    "vue-cli-plugin-axios-ts": "^1.0.2",
     "vue-cli-plugin-pug": "^1.0.5",
     "vue-template-compiler": "^2.5.17"
   },
