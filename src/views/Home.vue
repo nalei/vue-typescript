@@ -4,7 +4,7 @@
       md-card
         md-card-area
           md-card-header
-            .md-title Card without hover effect
+            .md-title Загрузка и получение файлов
           md-card-content
             form#POST
               file-upload
