@@ -1,6 +1,6 @@
 <template lang="pug">
   .file-upload
-    md-button.file-upload__button.md-dense.md-raised.md-primary Browse
+    md-button.file-upload__button.md-dense.md-raised.md-accent Browse
       input.file-upload__upload-input(
       type='file'
       name='FileAttachment'
@@ -73,7 +73,7 @@ export default class FileUpload extends Vue {
     position: static;
     font-size: 14px;
   }
-  &__button.md-primary {
+  &__button.md-accent {
     position: relative;
     color: #fff !important;
     margin-left: 0;

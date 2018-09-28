@@ -30,8 +30,8 @@ export default class App extends Vue {
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
 @include md-register-theme("default", (
-  primary: md-get-palette-color(Cyan, 500), // The primary color of your application
-  accent: md-get-palette-color(Lightblue, 500), // The accent or secondary color white
+  primary: md-get-palette-color(Lightblue, 500), // The primary color of your application
+  accent: md-get-palette-color(Cyan, 500), // The accent or secondary color white
 ));
 
 @import "~vue-material/dist/theme/all"; // Apply the theme

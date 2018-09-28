@@ -1,10 +1,19 @@
 <template lang="pug">
-  .md-layout.md-gutter
-    .md-layout-item.md-large-size-33.md-small-size-50.md-xsmall-size-100
-      md-card
+  .md-layout.md-gutter.md-alignment-top-center
+    .md-layout-item.md-size-50.md-small-size-100.md-xsmall-size-100
+      md-card.files-card
         md-card-area
           md-card-header
-            .md-title Загрузка и получение файлов
+            .md-title Files
+            p  ЗАДАЧА - научиться работать с потоками 
+              a(href="https://nodejs.org/api/stream.html") streams
+              |.
+              br
+              | Написать HTTP-сервер для загрузки и получения файлов
+              br
+              | - Все файлы находятся в директории files
+              br
+              | - Структура файлов НЕ вложенная.
           md-card-content
             form#POST
               file-upload
@@ -14,14 +23,14 @@
                 label Filename
                 md-input(v-model='filenameForRead')
                 span.md-helper-text filename.ext
-              md-button.file-work-form__button.md-dense.md-raised.md-primary Загрузить
+              md-button.file-work-form__button.md-dense.md-raised.md-accent Загрузить
 
             form#DELETE.file-work-form
               md-field
                 label Filename
                 md-input(v-model='filenameForDelete')
                 span.md-helper-text filename.ext
-              md-button.file-work-form__button.md-dense.md-raised.md-primary Удалить
+              md-button.file-work-form__button.md-dense.md-raised.md-accent Удалить
 
     //- .md-layout-item.md-large-size-33.md-small-size-50.md-xsmall-size-100
     //-   md-card.dog-card
@@ -75,10 +84,15 @@ export default class Home extends Vue {
   .md-field {
     margin-bottom: 7px;
   }
-  &__button.md-primary {
+  &__button.md-accent {
     color: #fff !important;
     margin-right: 0;
   }
+}
+.files-card {
+  max-width: 420px;
+  margin: 0 auto;
+  border-top: 5px solid #62efff;
 }
 .dog-card {
   .md-card-header {
