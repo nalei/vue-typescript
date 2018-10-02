@@ -36,7 +36,12 @@ export default class App extends Vue {
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
 
+
+
 #app {
+  *::selection {
+    background-color: #ACCEF7;
+  }
   .main-drawer {
     background: md-get-palette-color(bluegrey, 800);
 
