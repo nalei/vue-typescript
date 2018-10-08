@@ -15,22 +15,32 @@
               br
               | - Структура файлов НЕ вложенная.
           md-card-content
-            form#POST
-              file-upload
-
+            strong Открыть:
             form#GET.file-work-form
               md-field
                 label Filename
                 md-input(v-model='filenameForRead')
-                span.md-helper-text filename.ext
-              md-button.file-work-form__button.md-dense.md-raised.md-accent Загрузить
+                span.md-helper-text - выдаёт файл file.ext из директории files
+              md-button.file-work-form__button.md-dense.md-raised.md-accent Открыть
 
+            strong Удалить:
             form#DELETE.file-work-form
               md-field
                 label Filename
                 md-input(v-model='filenameForDelete')
-                span.md-helper-text filename.ext
+                span.md-helper-text - удаляет файл, выводит 200 OK
               md-button.file-work-form__button.md-dense.md-raised.md-accent Удалить
+
+            h3 Загрузить:
+            form#POST.file-upload-form
+              file-upload
+              .file-upload-form__helper-text - пишет всё тело запроса в файл files/file.ext и выдаёт ОК
+                br
+                | - при превышении файлом размера 1MB выдаёт ошибку 413
+                br
+                | - если файл уже есть, то выдаёт ошибку 409
+              md-button.file-upload-form__button.md-raised.md-accent(type="submit") Загрузить
+                md-icon cloud_upload
 
     //- .md-layout-item.md-large-size-33.md-small-size-50.md-xsmall-size-100
     //-   md-card.dog-card
@@ -80,6 +90,7 @@ export default class Home extends Vue {
 .file-work-form {
   display: flex;
   align-items: flex-end;
+  margin-bottom: 58px;
 
   .md-field {
     margin-bottom: 7px;
@@ -87,6 +98,22 @@ export default class Home extends Vue {
   &__button.md-accent {
     color: #fff !important;
     margin-right: 0;
+  }
+}
+.file-upload-form {
+  &__button.md-accent {
+    padding: 0 8px;
+    color: #fff !important;
+    margin-left: 0;
+  }
+  &__helper-text {
+    font-size: 12px;
+    margin-bottom: 15px;
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .md-icon {
+    color: #fff !important;
+    margin-left: 10px;
   }
 }
 .files-card {

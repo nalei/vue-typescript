@@ -6,7 +6,7 @@
       name='FileAttachment'
       @change="uploadFile"
       )
-    span.file-upload__upload-url(v-if="!filesList.length") Maximum file size is 1GB
+    span.file-upload__upload-url(v-if="!filesList.length") Maximum file size is 1MB
     span.file-upload__filename(v-else) {{ filesList[filesList.length - 1].name }}
 </template>
 
