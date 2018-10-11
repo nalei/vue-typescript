@@ -19,15 +19,15 @@
             form#GET.file-work-form
               md-field
                 label Filename
-                md-input(v-model='filenameForRead')
+                md-input(v-model='readFileName')
                 span.md-helper-text - выдаёт файл file.ext из директории files
-              md-button.file-work-form__button.md-dense.md-raised.md-accent Открыть
+              md-button(@click="getFile").file-work-form__button.md-dense.md-raised.md-accent Открыть
 
             strong Удалить:
             form#DELETE.file-work-form
               md-field
                 label Filename
-                md-input(v-model='filenameForDelete')
+                md-input(v-model='deleteFileName')
                 span.md-helper-text - удаляет файл, выводит 200 OK
               md-button.file-work-form__button.md-dense.md-raised.md-accent Удалить
 
@@ -79,8 +79,27 @@ import FileUpload from '@/components/FileUpload.vue'
   },
 })
 export default class Home extends Vue {
-  filenameForDelete: string = ''
-  filenameForRead: string= ''
+  readFileName: string= ''
+  deleteFileName: string = ''
+
+  private get readFileUrl() {
+    // eslint-disable-next-line
+    return  '/' + this.readFileName.replace(/.*[\\\/]/, '')
+  }
+
+  private get deleteFileUrl() {
+    // eslint-disable-next-line
+    return  '/' + this.deleteFileName.replace(/.*[\\\/]/, '')
+  }
+
+  private getFile() {
+    this.$axios.get(this.readFileUrl)
+    .then(response => {
+      // eslint-disable-next-line
+      console.log(`${response.status}: ${response.statusText}`)
+    })
+  }
+
 }
 </script>
 
