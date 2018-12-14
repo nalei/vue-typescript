@@ -23,9 +23,11 @@
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-typescript": "^3.0.1",
     "node-sass": "^4.9.0",
+    "prerender-spa-plugin": "^3.2.1",
     "sass-loader": "^7.0.1",
     "typescript": "^3.0.0",
     "vue-cli-plugin-axios-ts": "^1.0.2",
+    "vue-cli-plugin-prerender-spa": "^1.0.3",
     "vue-cli-plugin-pug": "^1.0.5",
     "vue-template-compiler": "^2.5.17"
   },

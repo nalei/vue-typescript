@@ -99,7 +99,6 @@ export default class Home extends Vue {
       console.log(`${response.status}: ${response.statusText}`)
     })
   }
-
 }
 </script>
 
