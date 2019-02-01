@@ -1,9 +1,10 @@
 <template lang="pug">
   #app
-    md-toolbar.main-header(md-elevation='2')
+    md-toolbar.main-header(md-elevation='1')
       md-button.md-icon-button(@click='showNavigation = true')
         md-icon menu
-      h3.md-title Default
+      .vox-logo
+        img(src='./assets/voximplant-logo.jpg', alt='Logo')
     md-drawer.main-drawer(:md-active.sync='showNavigation')
       md-toolbar.main-drawer__header(md-elevation='0')
         span.md-title
@@ -30,8 +31,8 @@ export default class App extends Vue {
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
 @include md-register-theme("default", (
-  primary: md-get-palette-color(Lightblue, 500), // The primary color of your application
-  accent: md-get-palette-color(Cyan, 500), // The accent or secondary color white
+  primary: md-get-palette-color(deeppurple, A400), // The primary color of your application
+  accent: md-get-palette-color(deeppurple, A400), // The accent or secondary color white
 ));
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
@@ -41,6 +42,13 @@ export default class App extends Vue {
 #app {
   *::selection {
     background-color: #ACCEF7;
+  }
+  .main-header {
+    background: var(--white);
+
+    .vox-logo {
+      width: 120px;
+    }
   }
   .main-drawer {
     background: md-get-palette-color(bluegrey, 800);
@@ -82,10 +90,12 @@ export default class App extends Vue {
   .md-layout {
     margin: 0 auto;
     max-width: 1080px;
+    background-color: var(--gray-100);
   }
   .md-layout-item {
     padding-top: 16px;
     padding-bottom: 16px;
   }
 }
+
 </style>

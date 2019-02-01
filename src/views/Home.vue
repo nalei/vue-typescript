@@ -1,58 +1,46 @@
 <template lang="pug">
   .md-layout.md-gutter.md-alignment-top-center
-    .md-layout-item.md-size-50.md-small-size-100.md-xsmall-size-100
-      md-card.files-card
-        md-card-area
-          md-card-header
-            .md-title Files
-            p  ЗАДАЧА - научиться работать с потоками 
-              a(href="https://nodejs.org/api/stream.html") streams
-              |.
-              br
-              | Написать HTTP-сервер для загрузки и получения файлов
-              br
-              | - Все файлы находятся в директории files
-              br
-              | - Структура файлов НЕ вложенная.
-          md-card-content
-            strong Открыть:
-            form#GET.file-work-form
-              md-field
-                label Filename
-                md-input(v-model='readFileName')
-                span.md-helper-text - выдаёт файл file.ext из директории files
-              md-button(@click="getFile").file-work-form__button.md-dense.md-raised.md-accent Открыть
-
-            strong Удалить:
-            form#DELETE.file-work-form
-              md-field
-                label Filename
-                md-input(v-model='deleteFileName')
-                span.md-helper-text - удаляет файл, выводит 200 OK
-              md-button.file-work-form__button.md-dense.md-raised.md-accent Удалить
-
-            h3 Загрузить:
-            form#POST.file-upload-form
-              file-upload
-              .file-upload-form__helper-text - пишет всё тело запроса в файл files/file.ext и выдаёт ОК
-                br
-                | - при превышении файлом размера 1MB выдаёт ошибку 413
-                br
-                | - если файл уже есть, то выдаёт ошибку 409
-              md-button.file-upload-form__button.md-raised.md-accent(type="submit") Загрузить
-                md-icon cloud_upload
-
-    //- .md-layout-item.md-large-size-33.md-small-size-50.md-xsmall-size-100
-    //-   md-card.dog-card
+    //- .md-layout-item.md-size-50.md-small-size-100.md-xsmall-size-100
+    //-   md-card.files-card
     //-     md-card-area
     //-       md-card-header
-    //-         md-card-header-text
-    //-           .md-title Primary color
-    //-           .md-subhead Subtitle here
+    //-         .md-title Files
+    //-         p  ЗАДАЧА - научиться работать с потоками 
+    //-           a(href="https://nodejs.org/api/stream.html") streams
+    //-           |.
+    //-           br
+    //-           | Написать HTTP-сервер для загрузки и получения файлов
+    //-           br
+    //-           | - Все файлы находятся в директории files
+    //-           br
+    //-           | - Структура файлов НЕ вложенная.
     //-       md-card-content
-    //-         | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
-    //-     md-card-actions
-    //-       md-button Action
+    //-         strong Открыть:
+    //-         form#GET.file-work-form
+    //-           md-field
+    //-             label Filename
+    //-             md-input(v-model='readFileName')
+    //-             span.md-helper-text - выдаёт файл file.ext из директории files
+    //-           md-button(@click="getFile").file-work-form__button.md-dense.md-raised.md-accent Открыть
+
+    //-         strong Удалить:
+    //-         form#DELETE.file-work-form
+    //-           md-field
+    //-             label Filename
+    //-             md-input(v-model='deleteFileName')
+    //-             span.md-helper-text - удаляет файл, выводит 200 OK
+    //-           md-button.file-work-form__button.md-dense.md-raised.md-accent Удалить
+
+    //-         h3 Загрузить:
+    //-         form#POST.file-upload-form
+    //-           file-upload
+    //-           .file-upload-form__helper-text - пишет всё тело запроса в файл files/file.ext и выдаёт ОК
+    //-             br
+    //-             | - при превышении файлом размера 1MB выдаёт ошибку 413
+    //-             br
+    //-             | - если файл уже есть, то выдаёт ошибку 409
+    //-           md-button.file-upload-form__button.md-raised.md-accent(type="submit") Загрузить
+    //-             md-icon cloud_upload
 
     //- .md-layout-item.md-large-size-33.md-small-size-50.md-xsmall-size-100
     //-   md-card
@@ -67,15 +55,25 @@
     //-     md-card-actions(md-alignment='left')
     //-       md-button Read more
 
+    .md-layout-item.md-size-50.md-small-size-100.md-xsmall-size-100
+      md-card.files-card
+        md-card-area
+          md-card-content
+            Signature
+        md-card-actions
+          md-button Clear
+
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import FileUpload from '@/components/FileUpload.vue'
+import Signature from '@/components/Signature.vue'
 
 @Component({
   components: {
-    FileUpload
+    FileUpload,
+    Signature
   },
 })
 export default class Home extends Vue {
@@ -114,14 +112,14 @@ export default class Home extends Vue {
     margin-bottom: 7px;
   }
   &__button.md-accent {
-    color: #fff !important;
+    text-transform: none;
     margin-right: 0;
   }
 }
 .file-upload-form {
   &__button.md-accent {
+    text-transform: none;
     padding: 0 8px;
-    color: #fff !important;
     margin-left: 0;
   }
   &__helper-text {
@@ -137,15 +135,5 @@ export default class Home extends Vue {
 .files-card {
   max-width: 420px;
   margin: 0 auto;
-  border-top: 5px solid #62efff;
-}
-.dog-card {
-  .md-card-header {
-    min-height: 200px;
-    background: md-get-palette-color(teal, 300);
-    background-image: url(../assets/dog.png);
-    background-position: 90% 100%;
-    background-repeat: no-repeat;
-  }
 }
 </style>
