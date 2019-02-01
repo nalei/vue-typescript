@@ -93,7 +93,7 @@ export default class Home extends Vue {
   }
 
   private getFile() {
-    this.$axios.get(this.readFileUrl)
+    this.$axios.get('/files' + this.readFileUrl)
     .then(response => {
       // eslint-disable-next-line
       console.log(`${response.status}: ${response.statusText}`)
