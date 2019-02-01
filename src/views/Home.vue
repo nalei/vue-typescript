@@ -55,8 +55,9 @@
     //-     md-card-actions(md-alignment='left')
     //-       md-button Read more
 
-    .md-layout-item.md-size-50.md-small-size-100.md-xsmall-size-100
-      md-card.files-card
+    .viewer.md-layout-item.md-size-50.md-small-size-100.md-xsmall-size-100
+      h2.heading PREVIEW
+      md-card.preview-card
         md-card-area
           md-card-content
             Signature
@@ -112,13 +113,11 @@ export default class Home extends Vue {
     margin-bottom: 7px;
   }
   &__button.md-accent {
-    text-transform: none;
     margin-right: 0;
   }
 }
 .file-upload-form {
   &__button.md-accent {
-    text-transform: none;
     padding: 0 8px;
     margin-left: 0;
   }
@@ -132,8 +131,20 @@ export default class Home extends Vue {
     margin-left: 10px;
   }
 }
-.files-card {
-  max-width: 420px;
-  margin: 0 auto;
+// .files-card {
+//   max-width: 420px;
+//   margin: 0 auto;
+// }
+
+.preview-card {
+  min-width: 420px;
+}
+
+.viewer {
+  h2 {
+    color: var(--gray-900);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 </style>
